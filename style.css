@@ -1,22 +1,25 @@
 *{ box-sizing:border-box; }
 :root{
-  --bg:#0b1220;
-  --card:#121b2f;
-  --line:#23345f;
-  --text:#e8eefc;
-  --muted:#aab6d6;
-  --accent:#6d5efc;
-  --accent2:#22c55e;
-  --danger:#ef4444;
+  --bg:#2b002b;
+  --cartao:#3d003d;
+  --linha:#660066;
+  --texto:#ffe6f7;
+  --silenciado:#ffb3e6;
+  --destaque:#ff69b4;
+  --acento:#ff1493;
 }
 
 body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:
-    radial-gradient(900px 450px at 20% 10%, rgba(109,94,252,.25), transparent 55%),
-    radial-gradient(900px 450px at 80% 90%, rgba(34,197,94,.18), transparent 55%),
-    linear-gradient(180deg, #0b1220, #0f1a33);
+linear-gradient(rgba(255,20,147,0.6), rgba(255,105,180,0.6)),
+url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+  
   color:var(--text);
   min-height:100vh;
   display:grid;
