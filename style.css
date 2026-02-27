@@ -1,11 +1,12 @@
 *{ box-sizing:border-box; }
+
 :root{
   --bg:#2b002b;
-  --cartao:#3d003d;
-  --linha:#660066;
-  --texto:#ffe6f7;
-  --silenciado:#ffb3e6;
-  --destaque:#ff69b4;
+  --cartao:#ff69b4;     /* cor do card (rosa forte) */
+  --linha:#ff1493;      /* bordas */
+  --texto:#000000;      /* texto principal (preto) */
+  --silenciado:#2b002b; /* texto secundário */
+  --destaque:#ff1493;
   --acento:#ff1493;
 }
 
@@ -13,81 +14,107 @@ body{
   margin:0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   background:
-linear-gradient(rgba(255,20,147,0.6), rgba(255,105,180,0.6)),
-url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
+    linear-gradient(rgba(255,20,147,0.6), rgba(255,105,180,0.6)),
+    url("https://images.unsplash.com/photo-1490750967868-88aa4486c946");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
-  
-  color:var(--text);
+  color: var(--texto);
   min-height:100vh;
   display:grid;
   place-items:center;
   padding:24px;
 }
 
+/* Card principal - mantém layout original */
 .calc{
- background: #ff69b4; /* rosa forte */
-border: 2px solid #ff1493;
-box-shadow: 0 15px 40px rgba(0,0,0,.25);
-color: black;
+  width:min(360px, 100%);
+  background: var(--cartao);
+  border: 2px solid var(--linha);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 18px 50px rgba(0,0,0,.35);
 }
 
-.top h1{ margin:0; font-size:20px; }
-.top p{ margin:4px 0 12px; color:var(--muted); font-size:12px; }
+.top h1{ margin:0; font-size:20px; color: var(--texto); }
+.top p{ margin:4px 0 12px; color: var(--silenciado); font-size:12px; }
 
+/* Visor - mantém formato e espaço */
 .display{
   background: #ffc0cb;
-  border: 2px solid #ff1493;
-  color: black;
-  font-weight: 700;
+  border: 2px solid var(--linha);
+  border-radius: 14px;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
+/* linha de histórico (se você usa) */
 .history{
   min-height:18px;
-  color:var(--muted);
+  color: var(--silenciado);
   font-size:12px;
   text-align:right;
   opacity:.9;
 }
 
+/* número grande do visor */
 .screen{
   width:100%;
   border:0;
   outline:none;
   background:transparent;
-  color:var(--text);
+  color: #000;
   font-size:32px;
   text-align:right;
   font-weight:800;
 }
 
+/* Grid dos botões - layout original */
 .keys{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
   gap:10px;
 }
 
+/* Botões - sólidos, pretos, “gordinhos” */
 .key{
+  padding: 14px 10px;
+  border-radius: 14px;
+  border: 2px solid var(--linha);
   background: #ff85c1;
-  border: 2px solid #ff1493;
-  color: black;
-  font-weight: 600;
+  color: #000;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  transition: .15s ease;
+  box-shadow: 0 6px 0 #c71585; /* relevo (mantém o “layout”) */
 }
 
+/* Hover suave */
 .key:hover{
-  background: #ff1493;
-  color: black;
+  background: #ff5fb0;
 }
+
+/* Clique (efeito de apertar) */
+.key:active{
+  transform: translateY(2px);
+  box-shadow: 0 4px 0 #c71585;
+}
+
+/* Operadores */
 .op{
-  color:#ff69b4;
-  font-weight:600;
+  color:#000;
+  font-weight:800;
 }
+
+/* Botão igual destacado */
 .eq{
   background: #ff1493;
   border: 2px solid #c71585;
-  color: black;
-  font-weight: 800;
+  color: #000;
+  font-weight: 900;
 }
+
+/* 0 ocupa 2 colunas */
 .zero{ grid-column: span 2; }
